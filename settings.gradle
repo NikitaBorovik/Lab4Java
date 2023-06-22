@@ -1,4 +1,4 @@
-rootProject.name = 'Laboratory2Borovik'
+rootProject.name = 'laboratory2borovik'
 include 'UserInteractor'
 include 'PortScanner'
 include 'DataSerializer'

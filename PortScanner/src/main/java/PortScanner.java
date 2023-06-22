@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class PortScanner {
 
-    private static final int THREADS_NUM = 8;
+    public static final int THREADS_NUM = 8;
     public Map<Integer, Boolean> scanPorts( int minPort, int maxPort, String ip) {
         Map<Integer, Boolean> portStatus = new ConcurrentHashMap<>();
         ExecutorService executor = Executors.newFixedThreadPool(THREADS_NUM);
