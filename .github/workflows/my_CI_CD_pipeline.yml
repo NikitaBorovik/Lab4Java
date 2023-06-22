@@ -28,10 +28,28 @@ jobs:
           reporter: github-check
           level: warning
           checkstyle_config: sun_checks.xml
-
-  build_and_publish:
+          
+  run_tests:
     runs-on: ubuntu-latest
-
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    - name: Run chmod to make gradlew executable
+      run: chmod +x ./gradlew
+    - name: Validate Gradle wrapper
+      uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
+    - name: Test
+      uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+      with:
+        arguments: test
+        
+  build_and_publish:
+    needs: run_tests
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
