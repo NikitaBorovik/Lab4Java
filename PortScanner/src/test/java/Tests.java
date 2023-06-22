@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class Tests {
     @Test
     public void assertThreadsNumber(){
-        //test 
-        assertTrue(PortScanner.THREADS_NUM <= 16 && PortScanner.THREADS_NUM > 0);
+        PortScanner portScanner = new PortScanner();
+        assertTrue(portScanner.getTHREADS_NUM() <= 16 && portScanner.getTHREADS_NUM() > 0);
     }
 }
