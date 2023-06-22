@@ -1,0 +1,19 @@
+plugins {
+    id 'java-library'
+}
+
+group 'org.homework'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    api 'com.google.guava:guava:24.0-jre'
+}
+
+test {
+    useJUnitPlatform()
+}

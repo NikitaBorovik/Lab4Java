@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+}
+
+group 'org.homework'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation project(':PortScanner')
+    implementation project(':DataSerializer')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.named('classes') { dependsOn('makeResultsDirectory','checkIfFileExists')}
+
+tasks.register('checkIfFileExists') {
+    def fileToCheck = file('../resultDir/result.txt')
+
+    doLast {
+        if (fileToCheck.exists()) {
+            println "File result.txt was found"
+        }
+        else {
+            println "File result.txt was not found"
+        }
+    }
+}
+
+tasks.register('makeResultsDirectory'){
+    def dirToCheck = file('../resultDir')
+
+    doLast {
+        if (!dirToCheck.exists()) {
+            dirToCheck.mkdir()
+        }
+        else{
+            println "Directory for results already exists"
+        }
+    }
+}

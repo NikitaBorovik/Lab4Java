@@ -1,0 +1,5 @@
+rootProject.name = 'Laboratory2Borovik'
+include 'UserInteractor'
+include 'PortScanner'
+include 'DataSerializer'
+
