@@ -6,6 +6,6 @@ public class Tests {
     public void assertThreadsNumber(){
         //test 2
         PortScanner portScanner = new PortScanner();
-        assertTrue(portScanner.getTHREADS_NUM() >= 16 && portScanner.getTHREADS_NUM() > 0);
+        assertTrue(portScanner.getTHREADS_NUM() <= 16 && portScanner.getTHREADS_NUM() > 0);
     }
 }
